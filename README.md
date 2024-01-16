@@ -8,7 +8,7 @@ It also provides some modifications to AutoQKeras, such as the support to Batch 
 The explanation of all the modifications is in: Terlizzi, M. Alessio, "Mixed-precision Quantization and Inference of MLPerf Tiny DNNs on Precision-Scalable Hardware Accelerators", 2023, Politecnico di Torino. Accessed: Dec. 7, 2023. [Online]. Available: https://webthesis.biblio.polito.it/26664/.
 
 ## New files
-Install QKeras and replace the original files with the following ones, then follow _QKeras_Unveiled-final.ipynb_:
+Create a new conda environment using _qkeras-env.yml_, replace the original files of QKeras with the following ones, and then follow _QKeras_Unveiled-final.ipynb_:
 - autoqkeras/autoqkeras_internal.py
 - autoqkeras/forgiving_metrics/forgiving_bits.py
 - qkeras/quantizers.py
