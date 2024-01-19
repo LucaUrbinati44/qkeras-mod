@@ -12,10 +12,18 @@ The explanation of all the modifications is in [4].
 
 ## How to start
 Create a new conda environment using the provided _qkeras-env.yml_ environment, replace the original files of QKeras with the following ones, and then follow [_qkeras-mod-explained.ipynb_](https://github.com/LucaUrbinati44/qkeras-mod/blob/main/qkeras-mod-explained.ipynb):
-- _autoqkeras/autoqkeras_internal.py_ &emsp;&emsp;&emsp;&emsp;&emsp; => _<your_qkeras-env_installation_path>/autoqkeras/autoqkeras_internal.py_
-- _autoqkeras/forgiving_metrics/forgiving_bits.py_ => _<your_qkeras-env_installation_path>/autoqkeras/forgiving_metrics/forgiving_bits.py_
-- _qkeras/quantizers.py_ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; => _<your_qkeras-env_installation_path>/qkeras/quantizers.py_
-- _qkeras/utils.py_ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; => _<your_qkeras-env_installation_path>/qkeras/utils.py_
+- _autoqkeras/autoqkeras_internal.py_ -->
+
+  _<your_qkeras-env_installation_path>/autoqkeras/autoqkeras_internal.py_
+- _autoqkeras/forgiving_metrics/forgiving_bits.py_ -->
+
+  _<your_qkeras-env_installation_path>/autoqkeras/forgiving_metrics/forgiving_bits.py_ 
+- _qkeras/quantizers.py_ ->
+
+  _<your_qkeras-env_installation_path>/qkeras/quantizers.py_
+- _qkeras/utils.py_ -->
+
+  _<your_qkeras-env_installation_path>/qkeras/utils.py_
 
 ## References
 [1] B. Jacob et al., "Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference," arXiv:1712.05877 [cs, stat], Dec. 2017. Available: http://arxiv.org/abs/1712.05877
