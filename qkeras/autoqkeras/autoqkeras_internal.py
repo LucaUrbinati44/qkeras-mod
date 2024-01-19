@@ -113,7 +113,7 @@ class AutoQKHyperModel(HyperModel):
   def __init__(
       self, model, metrics, custom_objects=None, target=None,
       transfer_weights=False, 
-      enable_bn_folding = False, #mod
+      enable_bn_folding = False, # NEW qkeras-mod
       frozen_layers=None, activation_bits=4, limit=None,
       tune_filters="none", tune_filters_exceptions=None,
       layer_indexes=None, learning_rate_optimizer=False,
@@ -128,7 +128,7 @@ class AutoQKHyperModel(HyperModel):
     self.reference_size = self.target.get_reference(model)
 
     self.transfer_weights = transfer_weights
-    self.enable_bn_folding = enable_bn_folding #mod
+    self.enable_bn_folding = enable_bn_folding # NEW qkeras-mod
     self.frozen_layers = frozen_layers if frozen_layers else []
     self.activation_bits = activation_bits
     self.head_name = head_name
@@ -561,7 +561,7 @@ class AutoQKHyperModel(HyperModel):
         model, q_dict, self.activation_bits,
         custom_objects=self.custom_objects,
         transfer_weights=self.transfer_weights,
-        enable_bn_folding=self.enable_bn_folding) #mod
+        enable_bn_folding=self.enable_bn_folding) # NEW qkeras-mod
 
     return q_model, fanin
 
@@ -769,7 +769,7 @@ class AutoQKeras:
 
   def __init__(
       self, model, metrics=None, custom_objects=None, goal=None,
-      enable_bn_folding = False, #mod
+      enable_bn_folding = False, # NEW qkeras-mod
       output_dir="result", mode="random", custom_tuner=None,
       transfer_weights=False, frozen_layers=None, activation_bits=4,
       limit=None, tune_filters="none",
@@ -837,7 +837,7 @@ class AutoQKeras:
     self.hypermodel = AutoQKHyperModel(
         model, metrics, custom_objects, target,
         transfer_weights=transfer_weights,
-        enable_bn_folding=enable_bn_folding, #mod
+        enable_bn_folding=enable_bn_folding, # NEW qkeras-mod
         frozen_layers=frozen_layers,
         activation_bits=activation_bits,
         limit=limit,

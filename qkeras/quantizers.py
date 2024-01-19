@@ -832,7 +832,7 @@ class quantized_bits_featuremap(BaseQuantizer):
         betaq = 2**(self.bits-1)-1 if self.symmetric else (2**self.bits)-1
         self.betaq = betaq 
         
-        # per-layer quantization --> axis=[0]
+        # per-layer quantization --> axis=[0,1]
         scale = (K.max(abs(x), axis=axis, keepdims=True) * 2) / levels
         self.scale1 = scale 
         alpha_f = K.min(x, axis=axis, keepdims=True) 
