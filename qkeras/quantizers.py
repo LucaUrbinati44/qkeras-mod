@@ -528,12 +528,12 @@ class quantized_bits(BaseQuantizer):  # pylint: disable=invalid-name
     self.use_ste = use_ste
     self.var_name = var_name
     self.use_variables = use_variables
-    self.levels = None # LUCA
-    self.scale1 = None # LUCA
-    self.m = None # LUCA
-    self.m_i = None # LUCA
-    self.alphaq = None # LUCA
-    self.betaq = None # LUCA
+    self.levels = None # NEW qkeras-mod
+    self.scale1 = None # NEW qkeras-mod
+    self.m = None # NEW qkeras-mod
+    self.m_i = None # NEW qkeras-mod
+    self.alphaq = None # NEW qkeras-mod
+    self.betaq = None # NEW qkeras-mod
 
   def __str__(self):
     # Convert Tensors to printable strings by converting to a numpy array and
@@ -566,9 +566,9 @@ class quantized_bits(BaseQuantizer):  # pylint: disable=invalid-name
     # quantized_bits with "1" bit becomes a binary implementation.
     unsigned_bits = self.bits - self.keep_negative
     m = K.cast_to_floatx(pow(2, unsigned_bits))
-    self.m = m # LUCA
+    self.m = m # NEW qkeras-mod
     m_i = K.cast_to_floatx(K.pow(2, self.integer))
-    self.m_i = m_i # LUCA
+    self.m_i = m_i # NEW qkeras-mod
 
     if self.alpha is None:
       scale = 1.0
@@ -589,14 +589,14 @@ class quantized_bits(BaseQuantizer):  # pylint: disable=invalid-name
       # If symmetry is not enforced, then we can represent (2**bits)-1 values
       # using 2's complement.
       levels = (2**(self.bits-1)-1) * 2 if self.symmetric else (2**self.bits)-1
-      self.levels = levels # LUCA
+      self.levels = levels # NEW qkeras-mod
       alphaq = -2**(self.bits-1)+1 if self.symmetric else 0
-      self.alphaq = alphaq # LUCA
+      self.alphaq = alphaq # NEW qkeras-mod
       betaq = 2**(self.bits-1)-1 if self.symmetric else (2**self.bits)-1
-      self.betaq = betaq # LUCA
+      self.betaq = betaq # NEW qkeras-mod
       
       scale = (K.max(abs(x), axis=axis, keepdims=True) * 2) / levels
-      self.scale1 = scale # LUCA
+      self.scale1 = scale # NEW qkeras-mod
 
       # If alpha is "auto_po2", then get the "best" po2 scale
       if "po2" in self.alpha:
@@ -611,16 +611,9 @@ class quantized_bits(BaseQuantizer):  # pylint: disable=invalid-name
 
       # If alpha is "auto", then get the "best" floating point scale
       elif self.alpha == "auto":
-        v = tf.floor(tf.abs(x) / scale + 0.5) # LUCA
-        mask = v < levels / 2 # LUCA
-        z = tf.sign(x) * tf.where(mask, v, tf.ones_like(v) * levels / 2) # LUCA
-
-        #u = tf.divide(x, scale) # LUCA
-        #self.before_rounding = u # LUCA
-        #mask = u > 0 # LUCA
-        #v = tf.where(mask, tf.floor(u + 0.5), tf.math.ceil(u - 0.5)) # LUCA
-        #z = tf.clip_by_value(v, alphaq, betaq) # LUCA
-        #self.outputq = z # LUCA
+        v = tf.floor(tf.abs(x) / scale + 0.5) # NEW qkeras-mod
+        mask = v < levels / 2 # NEW qkeras-mod
+        z = tf.sign(x) * tf.where(mask, v, tf.ones_like(v) * levels / 2) # NEW qkeras-mod
 
       else:
         raise ValueError(f"Invalid alpha '{self.alpha}'")
@@ -740,7 +733,7 @@ class quantized_bits(BaseQuantizer):  # pylint: disable=invalid-name
     return config
 
 
-# LUCA START
+# NEW qkeras-mod START
 class quantized_bits_featuremap(BaseQuantizer):
   """
   Quantizes the feature map tensor to a number of bits, including scaling factor and zero point.
@@ -871,7 +864,7 @@ class quantized_bits_featuremap(BaseQuantizer):
 
       else:
         raise ValueError(f"Invalid alpha '{self.alpha}'")
-# LUCA END
+# NEW qkeras-mod END
 
   def _set_trainable_parameter(self):
     if self.alpha is None:
