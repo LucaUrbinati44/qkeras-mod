@@ -7,9 +7,6 @@ It also provides some modifications to AutoQKeras, such as the support to Batch 
 
 The explanation of all the modifications is in [4]. 
 
-## Publications using this code
-- Luca Urbinati and Mario R. Casu, "High-Level Design of Precision-Scalable DNN Accelerators Based on Sum-Together Multiplier", in the review process.
-
 ## How to start
 Create a new conda environment using the provided _qkeras-env.yml_ environment, replace the original files of QKeras with the following ones, and then follow [_qkeras-mod-explained.ipynb_](https://github.com/LucaUrbinati44/qkeras-mod/blob/main/qkeras-mod-explained.ipynb):
 - _autoqkeras/autoqkeras_internal.py_ -->
@@ -24,6 +21,9 @@ Create a new conda environment using the provided _qkeras-env.yml_ environment, 
 - _qkeras/utils.py_ -->
 
   _<your_qkeras-env_installation_path>/qkeras/utils.py_
+
+## If using this code, please cite our work
+- Luca Urbinati and Mario R. Casu, "High-Level Design of Precision-Scalable DNN Accelerators Based on Sum-Together Multiplier", in the review process.
 
 ## References
 [1] B. Jacob et al., "Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference," arXiv:1712.05877 [cs, stat], Dec. 2017. Available: http://arxiv.org/abs/1712.05877
