@@ -23,7 +23,18 @@ Create a new conda environment using the provided _qkeras-env.yml_ environment, 
   _<your_qkeras-env_installation_path>/qkeras/utils.py_
 
 ## If using this code, please cite our work
-- Luca Urbinati and Mario R. Casu, "High-Level Design of Precision-Scalable DNN Accelerators Based on Sum-Together Multiplier", in the review process.
+```
+@ARTICLE{urbinati2024access,
+author={Urbinati, Luca and Casu, Mario R.},
+journal={IEEE Access}, 
+title={High-Level Design of Precision-Scalable DNN Accelerators Based on Sum-Together Multipliers}, 
+year={2024},
+volume={12},
+number={},
+pages={44163-44189},
+doi={10.1109/ACCESS.2024.3380472}}
+```
+
 
 ## References
 [1] B. Jacob et al., "Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference," arXiv:1712.05877 [cs, stat], Dec. 2017. Available: http://arxiv.org/abs/1712.05877
