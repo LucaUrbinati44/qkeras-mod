@@ -1,5 +1,5 @@
 # qkeras-mod
-This is an extension of the original [QKeras](https://github.com/google/qkeras) repository.
+This is an extension of the original [QKeras](https://github.com/google/qkeras) repository (commit hash number 4d61681d71c27a872dce96926a3f20908e0c7854).
 
 The main novelty of this extension is the added support to affine uniform quantization [1][2][3] for activation layers by introducing a new layer called _quantized_bits_featuremaps_.
 
